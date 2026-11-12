@@ -37,7 +37,7 @@ $panel.innerHTML = "<h2>Forge Controls</h2>"
 $panel.insertAdjacentHTML('beforeend', 
     `<div class="heatForgeActions" >
     <form id=heatForgeForm>
-            <input type ="number" id="heatNumber" min = 1 step = 1>
+            <input type ="number" id="heatNumber" name="heatNumber" min = 1 step = 1>
             <button id="heatButton">Add Heat</button>
             <p>Enter a positive whole number. Maximum forge heat: 100.</p>
     </form>
@@ -116,6 +116,8 @@ const $heatNumber = document.getElementById("heatNumber")
 const $heatForgeForm = document.getElementById("heatForgeForm")
 $heatForgeForm.addEventListener("submit", (e) =>{
     e.preventDefault()
+    const $heatValue = Number($heatForgeForm.elements.heatNumber.value)
+    heatForge($heatValue)
 } )
 
 
